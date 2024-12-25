@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="Ying Hu and Shangkun Tu">
 
     <title>TDE-VC Demo Page</title>
 
@@ -43,10 +42,11 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#abstract">Abstract</a>
-					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#s2s">Seen-to-Seen</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sr">SR operation</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#s2s">Seen-to-Seen</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#s2u">Seen-to-Unseen</a></li>
 					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#u2u">Unseen-to-Unseen</a></li>
-					<li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#sr">SR operation</a></li>
+					
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#ac">Acknowledgements</a></li>
 				</ul>
 			</div>
@@ -61,7 +61,7 @@
                     <div class="site-heading">
                         <h1>TDE-VC Demo</h1>
                         <span class="subheading">
-                            TDE-VC: Timbre Disentanglement and Extraction Via Consistency for One-Shot Voice Conversion
+                            TDE-VC: Timbre Disentanglement and Extraction Via Consistency for Zero-Shot Voice Conversion
                         </span>
                     </div>
                 </div>
@@ -79,15 +79,6 @@
                 </a>
               </span>
               <!-- Code Link. -->
-              <span class="link-block">
-                <a href="https://github.com/ShangkunTu/tdevccode/tree/main" target="_blank"
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-github fa-inverse"></i>
-                  </span>
-                  <span>Code will soon</span>
-                  </a>
-              </span>
             </div>
 			
         </div>
@@ -102,804 +93,20 @@
                         Abstract
                     </h2>
                     <p>
-                        Voice conversion (VC) is the task of converting a certain aspect of speech from a source to target while preserving the original linguistic content. In this paper, we focus on timbre conversion, which is a mainstream type of VC. Current VC methods often retain source speaker-related information within the extracted content or inadequately capture timbre features, leading to lower speaker similarity in the converted speech. To address these issues, we propose the TDE-VC model, a one-shot Voice Conversion based on Timbre Disentanglement and Extrac- tion, which primarily comprises a content extractor and timbre extractor. The content extractor exploits the adversarial speaker classification and data perturbation to effectively extract content while eliminating the speaker-related information. The timbre extractor includes a multi-scale timbre encoder (MSTE), and is trained with our propose timbre disentanglement strategy to effectively disentangle and extract timbre features. Experimental results show that TDE-VC model enhances the speaker similarity while maintaining competitive intelligibility compared to existing methods.
+                        In this work, we focus on timbre conversion, a key type of VC. Current VC methods face two challenges: retaining source speaker information in the extracted content and inadequately capturing timbre features, often leading to suboptimal speaker similarity in the converted speech. To address these issues, we propose the TDE-VC model, a zero-shot voice conversion framework that incorporates a phased-trained content extractor, combining the strengths of adversarial speaker classifier and data perturbation to extract cleaner content. Critically, we introduce a timbre disentanglement and extraction strategy, based on a multi-level consistency constraint, which effectively disentangles timbre from content and guides the timbre encoder to focus solely on timbre extraction. Additionally, we present an effective multi-scale timbre encoder. Experimental results demonstrate that TDE-VC significantly improves speaker similarity, especially for unseen target speakers, while maintaining competitive naturalness compared to existing methods.
 						
 					</p>
-                    <h2 class="post-title">
-                        Notes
-                </div>
-                <p>
-                    We sincerely recommend using headphones to listen to the demo, as other playback devices often struggle to reproduce the finer details of vocal characteristics. Thank you!
-                </p>	
+                </div>	
 				
-                <div class="post-preview">
-                    <h2 class="post-title">
-                        One-shot Voice Conversion
-                    </h2>
-                    <h3 class="post-meta" id="s2s">
-                        Seen-to-Seen (traditional VC)
-                    </h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Source</th>
-                                <th scope="col">Target</th>
-                                <th scope="col">Conversion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>p227_231
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p227_231.wav">
-                                    </audio>
-                                </td>
-                                <td>p323_023
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p323_023.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2s/p227_231-p323_023.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2s/p227_231-p323_023.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2s/p227_231-p323_023.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2s/p227_231-p323_023.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>p244_019
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p244_019.wav">
-                                    </audio>
-                                </td>
-                                <td>p248_021
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p248_021.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2s/p244_019-p248_021.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2s/p244_019-p248_021.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2s/p244_019-p248_021.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2s/p244_019-p248_021.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p262_278
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p262_278.wav">
-                                    </audio>
-                                </td>
-                                <td>p256_003
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p256_003.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2s/p262_278-p256_003.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2s/p262_278-p256_003.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2s/p262_278-p256_003.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2s/p262_278-p256_003.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p225_322
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p225_322.wav">
-                                    </audio>
-                                </td>
-                                <td>p243_003
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p243_003.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2s/p225_322-p243_003.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2s/p225_322-p243_003.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2s/p225_322-p243_003.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2s/p225_322-p243_003.wav">
-                                    </audio> 
-                                </td>
-                            </tr>         
-                            
-                            
-                        </tbody>
-                    </table>
-					<hr>
-					<h3 class="post-meta" id="s2u">
-                        Seen-to-Unseen (Zero-shot VC)
-                    </h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Source</th>
-                                <th scope="col">Target</th>
-                                <th scope="col">Conversion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr>
-                                <td>p232_021
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p232_021.wav">
-                                    </audio>
-                                </td>
-                                <td>F_ZhuMY
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_ZhuMY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p232_021-F_ZhuMY.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p232_021-F_ZhuMY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p232_021-F_ZhuMY.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p232_021-F_ZhuMY.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>p265_058
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p265_058.wav">
-                                    </audio>
-                                </td>
-                                <td>ZhouTQ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/ZhouTQ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p265_058-ZhouTQ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p265_058-ZhouTQ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p265_058-ZhouTQ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p265_058-ZhouTQ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>p255_057
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p255_057.wav">
-                                    </audio>
-                                </td>
-                                <td>F_LiuYY
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_LiuYY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p255_057-F_LiuYY.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p255_057-F_LiuYY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p255_057-F_LiuYY.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p255_057-F_LiuYY.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>p272_068
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p272_068.wav">
-                                    </audio>
-                                </td>
-                                <td>ZhouWT
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/ZhouWT.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p272_068-ZhouWT.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p272_068-ZhouWT.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p272_068-ZhouWT.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p272_068-ZhouWT.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p269_152
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p269_152.wav">
-                                    </audio>
-                                </td>
-                                <td>F_ZhangXL
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_ZhangXL.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p269_152-F_ZhangXL.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p269_152-F_ZhangXL.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p269_152-F_ZhangXL.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p269_152-F_ZhangXL.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p250_438
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p250_438.wav">
-                                    </audio>
-                                </td>
-                                <td>FanX
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/FanX.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p250_438-FanX.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p250_438-FanX.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p250_438-FanX.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p250_438-FanX.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p270_427
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p270_427.wav">
-                                    </audio>
-                                </td>
-                                <td>F_FangWJ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_FangWJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p270_427-F_FangWJ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p270_427-F_FangWJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p270_427-F_FangWJ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p270_427-F_FangWJ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            <tr>
-                                <td>p301_404
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/p301_404.wav">
-                                    </audio>
-                                </td>
-                                <td>XuFJ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/XuFJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-									YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/s2u/p301_404-XuFJ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/s2u/p301_404-XuFJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/s2u/p301_404-XuFJ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/s2u/p301_404-XuFJ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                        </tbody>
-                    </table>
-					<hr>
-					<h3 class="post-meta" id="u2u">
-                        Unseen-to-Unseen (Zero-shot VC)
-                    </h3>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Source</th>
-                                <th scope="col">Target</th>
-                                <th scope="col">Conversion</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            
-                            <tr>
-                                <td>Libri260_123286_0023
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/260_123286_0023.wav">
-                                    </audio>
-                                </td>
-                                <td>Libri237F
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/Libri237F.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/260_123286_0023-Libri237F.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/260_123286_0023-Libri237F.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/260_123286_0023-Libri237F.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/260_123286_0023-Libri237F.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri4446_2273_0018
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/4446_2273_0018.wav">
-                                    </audio>
-                                </td>
-                                <td>Libri5412W
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/Libri5412W.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/4446_2273_0018-Libri5412W.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/4446_2273_0018-Libri5412W.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/4446_2273_0018-Libri5412W.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/4446_2273_0018-Libri5412W.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri8455_210777_0070
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/8455_210777_0070.wav">
-                                    </audio>
-                                </td>
-                                <td>ZhouWT
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/ZhouWT.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/8455_210777_0070-ZhouWT.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/8455_210777_0070-ZhouWT.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/8455_210777_0070-ZhouWT.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/8455_210777_0070-ZhouWT.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri7021_85628_0002
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/7021_85628_0002.wav">
-                                    </audio>
-                                </td>
-                                <td>F_ZhangXL
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_ZhangXL.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/7021_85628_0002-F_ZhangXL.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/7021_85628_0002-F_ZhangXL.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/7021_85628_0002-F_ZhangXL.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/7021_85628_0002-F_ZhangXL.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri672_122797_0040
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/672_122797_0040.wav">
-                                    </audio>
-                                </td>
-                                <td>ZhouTQ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/ZhouTQ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/672_122797_0040-ZhouTQ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/672_122797_0040-ZhouTQ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/672_122797_0040-ZhouTQ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/672_122797_0040-ZhouTQ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri260_123440_0016
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/260_123440_0016.wav">
-                                    </audio>
-                                </td>
-                                <td>F_ZhuMY
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_ZhuMY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/260_123440_0016-F_ZhuMY.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/260_123440_0016-F_ZhuMY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/260_123440_0016-F_ZhuMY.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/260_123440_0016-F_ZhuMY.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri237_126133_0004
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/237_126133_0004.wav">
-                                    </audio>
-                                </td>
-                                <td>SunZY
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/SunZY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/237_126133_0004-SunZY.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/237_126133_0004-SunZY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/237_126133_0004-SunZY.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/237_126133_0004-SunZY.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri2830_3980_0072
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/2830_3980_0072.wav">
-                                    </audio>
-                                </td>
-                                <td>F_LiuYY
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_LiuYY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/2830_3980_0072-F_LiuYY.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/2830_3980_0072-F_LiuYY.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/2830_3980_0072-F_LiuYY.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/2830_3980_0072-F_LiuYY.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Libri1284_1180_0021
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/1284_1180_0021.wav">
-                                    </audio>
-                                </td>
-                                <td>XuFJ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/XuFJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/1284_1180_0021-XuFJ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/1284_1180_0021-XuFJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/1284_1180_0021-XuFJ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/1284_1180_0021-XuFJ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-                            
-                            
-                            <tr>
-                                <td>Libri5639_40744_0002
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/5639_40744_0002.wav">
-                                    </audio>
-                                </td>
-                                <td>F_WanQJ
-                                    <audio controls preload="none">
-                                        <source src="data/wavs/F_WanQJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    YourTTS
-                                    <audio controls preload="none">
-                                        <source src="data/YourTTS/u2u/5639_40744_0002-F_WanQJ.wav">
-                                    </audio> 
-									FreeVC
-                                    <audio controls preload="none">
-                                        <source src="data/FreeVC/u2u/5639_40744_0002-F_WanQJ.wav">
-                                    </audio>
-                                </td>
-                                <td>
-                                    DDDMVC
-                                    <audio controls preload="none">
-                                        <source src="data/DDDMVC/u2u/5639_40744_0002-F_WanQJ.wav">
-                                    </audio>
-								    TDE-VC (ours)
-                                    <audio controls preload="none">
-                                        <source src="data/TDEVC/u2u/5639_40744_0002-F_WanQJ.wav">
-                                    </audio> 
-                                </td>
-                            </tr>
-
-                            
-                        </tbody>
-                    </table>
-                </div>
                 <div class="post-preview"></div>
                     <h2 class="post-title" id="sr">
-                        Shuffle and Regroup (SR) operation
+                        Timbre disengagement and extraction strategy
                     </h2>
-                    <img src="data/shuffle_group/mste.png" width="500" height="350">
+                    <div style="text-align: center;">
+                        <img src="data/shuffle_group/mste.pdf" width="500" height="350" alt="SR Operation">
+                    </div>
                     <p>
-                        To achieve effective timbre disentanglement, the lower branch of the training strategy applies a Shuffle and Regroup (SR) operation on the input Mel spectrogram. This operation shuffles the content while maintaining the timbre’s integrity. However, experimental results show that using segments that are too short can cause timbre distortion, whereas segments that are too long reduce the effectiveness of content shuffling. The waveforms reconstructed from different segment lengths using the SR operation are illustrated below:
+                        The reconstructed speech after the SR operation with different segment length settings on the mel-spectrogram is shown below.
 					</p>
                     <table class="table">
                         <thead>
@@ -948,10 +155,516 @@
                         </tbody>
                     </table>
                     <p>
-                        After evaluating various segment lengths, a length of 25 frames (0.5 seconds) was determined to provide an optimal balance between content shuffling and timbre preservation. Further experiments confirmed that a segment length of 25 frames achieved the highest speaker similarity. The experimental results are shown below:
+                        Further experiments demonstrated that using a segment length of 25 frames achieved the highest speaker similarity under this strategy. The corresponding experimental results are presented below:
 					</p>
-                    <img src="data/shuffle_group/srlength.png" width="500" height="200">
+                    
+                    <div style="text-align: center;">
+                        <img src="data/shuffle_group/srlength.png" width="500" height="200">
+                    </div>
                 </div>
+
+                <div class="post-preview">
+                    <h2 class="post-title">
+                        Voice Conversion
+                    </h2>
+                    <h3 class="post-meta" id="s2s">
+                        Seen-to-Seen (The differences are minimal, so only two demos are provided.)
+                    </h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td>p227_231
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p227_231.wav">
+                                    </audio>
+                                </td>
+                                <td>p323_023
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p323_023.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2s/p227_231-p323_023.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2s/p227_231-p323_023.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2s/p227_231-p323_023.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2s/p227_231-p323_023.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            
+                            <tr>
+                                <td>p225_322
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p225_322.wav">
+                                    </audio>
+                                </td>
+                                <td>p243_003
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p243_003.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2s/p225_322-p243_003.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2s/p225_322-p243_003.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2s/p225_322-p243_003.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2s/p225_322-p243_003.wav">
+                                    </audio> 
+                                </td>
+                            </tr>         
+                            
+                            
+                        </tbody>
+                    </table>
+					<hr>
+					<h3 class="post-meta" id="s2u">
+                        Seen-to-Unseen (✨Zero-shot VC)
+                    </h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>p238_315
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p238_315.wav">
+                                    </audio>
+                                </td>
+                                <td>Lirbi7729M
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/Libri7729M.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2u/p238_315-Libri7729M.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2u/p238_315-Libri7729M.wav">
+                                    </audio>
+                                </td>
+
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2u/p238_315-Libri7729M.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2u/p238_315-Libri7729M.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>p230_248
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p230_248.wav">
+                                    </audio>
+                                </td>
+                                <td>F_022 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/F_ZhuMY.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2u/p230_248-F_ZhuMY.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2u/p230_248-F_ZhuMY.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2u/p230_248-F_ZhuMY.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2u/p230_248-F_ZhuMY.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>p362_003
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p362_003.wav">
+                                    </audio>
+                                </td>
+                                <td>M_009 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/ZhouTQ.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2u/p362_003-ZhouTQ.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2u/p362_003-ZhouTQ.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2u/p362_003-ZhouTQ.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2u/p362_003-ZhouTQ.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>p227_231
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p227_231.wav">
+                                    </audio>
+                                </td>
+                                <td>F_001 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/F_LiuYY.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2u/p227_231-F_LiuYY.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2u/p227_231-F_LiuYY.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2u/p227_231-F_LiuYY.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2u/p227_231-F_LiuYY.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>p228_132
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/p228_132.wav">
+                                    </audio>
+                                </td>
+                                <td>F_018 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/F_ZhangXL.wav">
+                                    </audio>
+                                </td>
+                                <td>
+									YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/s2u/p228_132-F_ZhangXL.wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/s2u/p228_132-F_ZhangXL.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/s2u/p228_132-F_ZhangXL.wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/s2u/p228_132-F_ZhangXL.wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+            
+                            
+                        </tbody>
+                    </table>
+					<hr>
+					<h3 class="post-meta" id="u2u">
+                        Unseen-to-Unseen (✨Zero-shot VC)
+                    </h3>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Source</th>
+                                <th scope="col">Target</th>
+                                <th scope="col">Conversion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <tr>
+                                <td>1995-1826-0019
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/1995-1826-0019.wav">
+                                    </audio>
+                                </td>
+                                <td>Libri5412W
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/Libri5412W.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[1995-1826-0019]-[Libri5412W].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[1995-1826-0019]-[Libri5412W].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[1995-1826-0019]-[Libri5412W].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[1995-1826-0019]-[Libri5412W].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1284-1181-0009
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/1284-1181-0009.wav">
+                                    </audio>
+                                </td>
+                                <td>Libri237F
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/Libri237F.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[1284-1181-0009]-[Libri237F].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[1284-1181-0009]-[Libri237F].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[1284-1181-0009]-[Libri237F].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[1284-1181-0009]-[Libri237F].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>6930-75918-0009
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/6930-75918-0009.wav">
+                                    </audio>
+                                </td>
+                                <td>M_011 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/ZhouWT.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[6930-75918-0009]-[ZhouWT].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[6930-75918-0009]-[ZhouWT].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[6930-75918-0009]-[ZhouWT].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[6930-75918-0009]-[ZhouWT].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            
+
+                            <tr>
+                                <td>1580-141083-0002
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/1580-141083-0002.wav">
+                                    </audio>
+                                </td>
+                                <td>F_022 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/F_ZhuMY.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[1580-141083-0002]-[F_ZhuMY].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[1580-141083-0002]-[F_ZhuMY].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[1580-141083-0002]-[F_ZhuMY].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[1580-141083-0002]-[F_ZhuMY].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>1580-141083-0002
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/1580-141083-0002.wav">
+                                    </audio>
+                                </td>
+                                <td>Libri2830M
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/Libri2830M.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[1320-122617-0015]-[Libri2830M].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[1320-122617-0015]-[Libri2830M].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[1320-122617-0015]-[Libri2830M].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[1320-122617-0015]-[Libri2830M].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td>2961-960-0013
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/2961-960-0013.wav">
+                                    </audio>
+                                </td>
+                                <td>M_009 (real-world)
+                                    <audio controls preload="none">
+                                        <source src="data/wavs/ZhouTQ.wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    YourTTS
+                                    <audio controls preload="none">
+                                        <source src="data/YourTTS/u2u/(UU)[2961-960-0013]-[ZhouTQ].wav">
+                                    </audio> 
+									FreeVC
+                                    <audio controls preload="none">
+                                        <source src="data/FreeVC/u2u/(UU)[2961-960-0013]-[ZhouTQ].wav">
+                                    </audio>
+                                </td>
+                                <td>
+                                    DDDMVC
+                                    <audio controls preload="none">
+                                        <source src="data/DDDMVC/u2u/(UU)[2961-960-0013]-[ZhouTQ].wav">
+                                    </audio>
+								    TDE-VC (ours)
+                                    <audio controls preload="none">
+                                        <source src="data/TDEVC/u2u/(UU)[2961-960-0013]-[ZhouTQ].wav">
+                                    </audio> 
+                                </td>
+                            </tr>
+
+                            
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="post-preview"></div>
+                    <h2 class="post-title" id="overview">
+                        Overview of the TDE-VC model
+                    </h2>
+
+                    <div style="text-align: center;">
+                        <img src="data/shuffle_group/TDE-VC.pdf" width="800" height="320">
+                    </div>
+                   
+                </div>
+
                 <div class="post-preview"></div>
                     <h2 class="post-title" id="ac">
                         Acknowledgements
